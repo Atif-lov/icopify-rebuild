@@ -36,7 +36,7 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-white text-white hover:bg-white hover:text-primary font-medium px-8 py-3 text-lg"
+            className="border-white text-primary hover:bg-white hover:text-primary font-medium px-8 py-3 text-lg"
           >
             📊 View Pricing
           </Button>
