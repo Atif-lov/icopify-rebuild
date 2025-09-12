@@ -22,41 +22,43 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "hsl(var(--primary-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          hover: "hsl(var(--card-hover))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        accent: {
+          green: "hsl(var(--accent-green))",
+          "green-dark": "hsl(var(--accent-green-dark))",
         },
+        stats: {
+          bg: "hsl(var(--stats-bg))",
+          text: "hsl(var(--stats-text))",
+        },
+      },
+      backgroundImage: {
+        'hero-gradient': 'var(--hero-gradient)',
+      },
+      boxShadow: {
+        'card': 'var(--shadow-card)',
+        'hero': 'var(--shadow-hero)',
+      },
+      fontSize: {
+        'hero': 'var(--font-hero)',
+      },
+      spacing: {
+        'hero': 'var(--space-hero)',
+        'section': 'var(--space-section)',
       },
       borderRadius: {
         lg: "var(--radius)",
