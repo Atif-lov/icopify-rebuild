@@ -1,7 +1,18 @@
 import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-background.jpg";
+import { useState } from "react";
+import AuthModal from "@/components/auth/AuthModal";
 
 const HeroSection = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section 
       className="relative bg-hero-gradient min-h-[600px] flex items-center"
@@ -30,17 +41,25 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             className="bg-white text-primary hover:bg-gray-100 font-medium px-8 py-3 text-lg"
+            onClick={() => setIsAuthModalOpen(true)}
           >
             👤 Sign Up Now
           </Button>
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-white text-primary hover:bg-white hover:text-primary font-medium px-8 py-3 text-lg"
+            className="border-white text-white hover:bg-white hover:text-primary font-medium px-8 py-3 text-lg"
+            onClick={scrollToPricing}
           >
             📊 View Pricing
           </Button>
         </div>
+        
+        <AuthModal 
+          isOpen={isAuthModalOpen} 
+          onClose={() => setIsAuthModalOpen(false)} 
+          defaultMode="signup"
+        />
       </div>
     </section>
   );

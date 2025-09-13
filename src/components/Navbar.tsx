@@ -1,6 +1,27 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { useAuth } from "@/components/auth/AuthContext";
+import AuthModal from "@/components/auth/AuthModal";
 
 const Navbar = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
+  const { user, signOut } = useAuth();
+
+  const handleLoginClick = () => {
+    setAuthMode('login');
+    setIsAuthModalOpen(true);
+  };
+
+  const handleSignUpClick = () => {
+    setAuthMode('signup');
+    setIsAuthModalOpen(true);
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   return (
     <nav className="bg-background border-b border-border px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -30,13 +51,30 @@ const Navbar = () => {
 
         {/* Auth Buttons */}
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" className="text-foreground hover:text-primary">
-            LOGIN
-          </Button>
-          <Button className="bg-primary hover:bg-primary-dark text-primary-foreground font-medium px-6">
-            SIGN UP
-          </Button>
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <span className="text-foreground">Welcome, {user.email}</span>
+              <Button variant="ghost" className="text-foreground hover:text-primary" onClick={handleSignOut}>
+                LOGOUT
+              </Button>
+            </div>
+          ) : (
+            <>
+              <Button variant="ghost" className="text-foreground hover:text-primary" onClick={handleLoginClick}>
+                LOGIN
+              </Button>
+              <Button className="bg-primary hover:bg-primary-dark text-primary-foreground font-medium px-6" onClick={handleSignUpClick}>
+                SIGN UP
+              </Button>
+            </>
+          )}
         </div>
+        
+        <AuthModal 
+          isOpen={isAuthModalOpen} 
+          onClose={() => setIsAuthModalOpen(false)} 
+          defaultMode={authMode}
+        />
       </div>
     </nav>
   );
