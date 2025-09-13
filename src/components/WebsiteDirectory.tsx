@@ -2,71 +2,77 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Clock, Users } from "lucide-react";
 
 const WebsiteDirectory = () => {
+  // You can edit this array to add your own websites that accept guest posts
   const websites = [
     {
       id: 1,
-      url: "new...",
-      description: "Unhide the URL",
-      maxDoFollow: 3,
-      turnaround: "3 Days",
-      categories: ["General", "All Niches"],
+      name: "TechCrunch",
+      url: "https://techcrunch.com",
+      description: "Leading technology news and startup coverage",
+      maxDoFollow: 2,
+      turnaround: "7 Days",
+      categories: ["Technology", "Startups", "AI"],
       monthlyTraffic: "31,486,515",
-      ahrefs: 82,
-      moz: 78,
+      ahrefs: 92,
+      moz: 88,
       language: "English",
-      price: "$4.99"
+      price: "$299"
     },
     {
       id: 2,
-      url: "pat...",
-      description: "Unhide the URL",
-      maxDoFollow: 3,
+      name: "Medium",
+      url: "https://medium.com",
+      description: "Open platform for writers and readers",
+      maxDoFollow: 1,
       turnaround: "3 Days",
-      categories: ["General", "All Niches"],
+      categories: ["General", "Technology", "Business"],
       monthlyTraffic: "128,792,970",
       ahrefs: 93,
       moz: 91,
       language: "English",
-      price: "$4.99"
+      price: "$149"
     },
     {
       id: 3,
-      url: "med...",
-      description: "Unhide the URL",
-      maxDoFollow: 3,
-      turnaround: "3 Days",
-      categories: ["Real Estate"],
+      name: "Forbes",
+      url: "https://forbes.com",
+      description: "Business and financial news publication",
+      maxDoFollow: 2,
+      turnaround: "10 Days",
+      categories: ["Business", "Finance", "Entrepreneurship"],
       monthlyTraffic: "86,947,163",
       ahrefs: 94,
       moz: 95,
       language: "English",
-      price: "$4.99"
+      price: "$599"
     },
     {
       id: 4,
-      url: "bef...",
-      description: "Unhide the URL",
-      maxDoFollow: 3,
-      turnaround: "3 Days",
-      categories: ["Health", "News and Media"],
-      monthlyTraffic: "2,318,954",
-      ahrefs: 76,
-      moz: 78,
+      name: "Entrepreneur",
+      url: "https://entrepreneur.com",
+      description: "Business and startup advice platform",
+      maxDoFollow: 2,
+      turnaround: "5 Days",
+      categories: ["Business", "Startups", "Marketing"],
+      monthlyTraffic: "12,318,954",
+      ahrefs: 86,
+      moz: 82,
       language: "English",
-      price: "$4.99"
+      price: "$399"
     },
     {
       id: 5,
-      url: "fur...",
-      description: "Unhide the URL",
-      maxDoFollow: 3,
-      turnaround: "3 Days",
-      categories: ["General", "Miscellaneous", "All Niches"],
+      name: "Mashable",
+      url: "https://mashable.com",
+      description: "Digital culture and technology news",
+      maxDoFollow: 1,
+      turnaround: "4 Days",
+      categories: ["Technology", "Digital Culture", "Social Media"],
       monthlyTraffic: "18,320,441",
       ahrefs: 81,
       moz: 72,
       language: "English",
-      price: "$4.99"
+      price: "$249"
     }
   ];
 
@@ -75,8 +81,11 @@ const WebsiteDirectory = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            62249 Websites & Blogs That Accept Guest Posts
+            Premium Websites That Accept Guest Posts
           </h2>
+          <p className="text-lg text-muted-foreground">
+            Click on any website to visit them directly
+          </p>
         </div>
 
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -98,9 +107,16 @@ const WebsiteDirectory = () => {
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
                   <ExternalLink size={16} className="text-blue-600" />
-                  <span className="font-medium text-blue-600">{website.url}</span>
-                  <span className="text-sm text-blue-500">{website.description}</span>
+                  <a 
+                    href={website.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="font-medium text-blue-600 hover:text-blue-800 hover:underline cursor-pointer"
+                  >
+                    {website.name}
+                  </a>
                 </div>
+                <p className="text-sm text-gray-600">{website.description}</p>
                 <div className="flex items-center space-x-4 text-sm text-gray-600">
                   <div className="flex items-center space-x-1">
                     <Users size={14} />
