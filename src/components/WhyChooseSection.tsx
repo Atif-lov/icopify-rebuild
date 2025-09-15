@@ -25,7 +25,7 @@ const WhyChooseSection = () => {
   ];
 
   return (
-    <section className="py-section bg-background">
+    <section id="why-choose" className="py-section bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-foreground mb-16">
           Why Choose Us
@@ -33,7 +33,7 @@ const WhyChooseSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="p-8 hover:shadow-card transition-shadow">
+            <Card key={index} className="p-8 hover:shadow-card transition-shadow transform hover:scale-105 duration-300">
               <CardContent className="p-0">
                 <div className="text-4xl mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-foreground mb-4">
